@@ -1,22 +1,26 @@
-version: '2' # specify docker-compose version
+version: '3' # specify docker-compose version
 
 # Define the services/containers to be run
 services:
   redis:
     image: redis
-    container_name: cache
+    container_name: redis
     expose:
       - 6379
 
   frontend: # name of the first service
     build: frontend # specify the directory of the Dockerfile
     ports:
-        - '80:8080'
+        - '8080:80'
         - '49153:49153'
   backend:
     build: backend
-    command: npm start
+    command: node app.js
     depends_on:
             - redis
     ports:
-      - "8000:8000"
+      - "3000:3000"
+    environment:
+      - REDIS_URL=redis://redis
+      - NODE_ENV=development
+      - PORT=3000
