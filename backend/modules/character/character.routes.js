@@ -4,4 +4,6 @@ const router = express.Router();
 
 router.get('/', characterCtrl.getList);
 
+router.get('/graphql/', characterCtrl.getListGraphql);
+
 module.exports = router;
