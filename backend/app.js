@@ -1,18 +1,22 @@
 const express = require('express');
 const createError = require('http-errors');
 const cors = require('cors');
-const dotenv = require('dotenv');
-
+const path = require('path');
+const port = process.env.PORT || 3000;
 
 const characterRoutes = require('./modules/character/character.routes');
 const userRoutes = require('./modules/user/user.routes');
-const app = express();
-const port = process.env.PORT || 3000;
 
+
+const app = express();
+
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
 app.use(express.json());
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
+// Routes
 app.use('/api/character', characterRoutes);
 app.use('/api/user', userRoutes);
 
@@ -32,7 +36,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  //res.render('error');
 });
 
 module.exports = app;
