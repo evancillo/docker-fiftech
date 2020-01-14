@@ -13,11 +13,13 @@
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "graphql-request": "^1.8.2",
+    "html": "^1.0.0",
     "http-errors": "~1.6.3",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "morgan": "~1.9.1",
+    "redis": "^2.8.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
