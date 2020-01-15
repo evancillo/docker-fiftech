@@ -3,13 +3,16 @@ const { request } = require('graphql-request');
 const httpRequest = require('request');
 
 
-exports.getList = function (req, res) {
+exports.getList = getList;
+exports.getListGraphql = getListGraphql;
+
+function getList(req, res) {
   httpRequest
     .get('https://rickandmortyapi.com/api/character/', {json: true})
     .pipe(res);
-};
+}
 
-exports.getListGraphql = function (req, res) {
+function getListGraphql(req, res) {
 
   const query = `{
     characters(page: 1) {
@@ -30,5 +33,5 @@ exports.getListGraphql = function (req, res) {
     .then(data =>
       res.json(data)
     )
-};
+}
 
