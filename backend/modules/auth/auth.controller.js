@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 
 
 exports.authenticate = authenticate;
+exports.verifyToken = verifyToken;
 
 async function authenticate(req, res) {
   let { password, username } = req.body;
@@ -23,3 +24,19 @@ async function authenticate(req, res) {
   }
 }
 
+function verifyToken(req, res, next) {
+
+  // check header or url parameters or post parameters for token
+  var token = req.headers['x-auth-token'];
+  if (!token)
+    return res.status(401).send({ auth: false, message: 'No token provided.' });
+
+  // verifies secret and checks exp
+  jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
+    if (err)
+      return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+    // if everything is good, save to request for use in other routes
+    req.userId = decoded.id;
+    next();
+  });
+}
