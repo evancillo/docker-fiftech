@@ -6,6 +6,7 @@ const port = process.env.PORT || 3000;
 
 const characterRoutes = require('./modules/character/character.routes');
 const userRoutes = require('./modules/user/user.routes');
+const authRoutes = require('./modules/auth/auth.routes');
 
 
 const app = express();
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 app.use('/api/character', characterRoutes);
 app.use('/api/user', userRoutes);
+app.use('/api/auth', authRoutes);
 
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
