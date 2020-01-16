@@ -1,0 +1,15 @@
+<div class="characters-view">
+
+  <div *ngIf="characters" class="character-list">
+      <div *ngFor="let character of characters;" class="character-card">
+        <img [src]="character.image" class="card-img-top">
+        <div class="character-card-body">
+          <h3>{{character.name }} </h3>
+          <p class="card-text">
+            {{character.gender}}
+            {{character.species}}
+            {{character.status}}</p>
+        </div>
+      </div>
+  </div>
+</div>

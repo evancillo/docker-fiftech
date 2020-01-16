@@ -1,0 +1,17 @@
+<div class="cont">
+
+  <div class="form">
+    <form #form="ngForm" (ngSubmit)="register(form)">
+      <h1>User registry</h1>
+      <input type="text"
+             class="user"
+             placeholder="Username" name="username"
+             ngModel />
+      <input type="password" name="password"
+             class="pass"
+             placeholder="Password"
+             ngModel />
+      <button class="register" type="submit" [disabled]="form.invalid">Crear Cuenta</button>
+    </form>
+  </div>
+</div>

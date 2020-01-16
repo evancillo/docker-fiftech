@@ -5,7 +5,8 @@ USER admin
 WORKDIR /home/admin
 COPY . /home/admin
 
-RUN npm install  @angular/cli &&\
-    npm run build:prod &&\
-    rm -rf /home/admin/node_modules
+RUN npm install
+    #node app.js &&\
+    #rm -rf /home/admin/node_modules
 
+EXPOSE 3000

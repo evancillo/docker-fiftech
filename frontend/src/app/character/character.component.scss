@@ -1,0 +1,24 @@
+@import "../app.component";
+
+.characters-view {
+  background-color: $bg;
+}
+
+
+.character-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  .character-card {
+    margin: 20px;
+    background-color: $white;
+    .character-card-body {
+      padding: 20px;
+    }
+    img {
+
+    }
+  }
+}
+
