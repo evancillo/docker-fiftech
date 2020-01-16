@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RegisterComponent } from './register.component';
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {NgxSpinnerModule} from "ngx-spinner";
 
 const routes: Routes = [
   {
@@ -16,7 +17,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    FormsModule
+    FormsModule,
+    NgxSpinnerModule
   ]
 })
 export class RegisterModule { }

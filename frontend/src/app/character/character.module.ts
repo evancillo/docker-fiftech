@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { CharacterComponent } from './character.component';
+import {NgxSpinnerModule} from "ngx-spinner";
 
 const routes: Routes = [
   {
@@ -13,7 +14,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    NgxSpinnerModule
   ],
   declarations: [CharacterComponent]
 })

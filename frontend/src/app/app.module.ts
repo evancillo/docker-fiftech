@@ -5,7 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule} from "./login/login.module";
 import { FormsModule} from "@angular/forms";
-import {RegisterModule} from "./register/register.module";
+import { RegisterModule } from "./register/register.module";
+import { NgxSpinnerModule } from "ngx-spinner";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import {RegisterModule} from "./register/register.module";
     AppRoutingModule,
     LoginModule,
     FormsModule,
-    RegisterModule
+    RegisterModule,
+    NgxSpinnerModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
