@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../auth/auth.service";
 import {Router} from "@angular/router";
+import {NgxSpinnerService} from "ngx-spinner";
 
 
 @Component({
@@ -10,21 +11,26 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
   }
 
   authenticate(form){
-    console.log('subit form: ', form.value);
-
+    this.spinner.show();
     this.authService
       .login(form.value)
       .subscribe( (resp)=> {
-        console.log('LogOK', resp);
-        this.router.navigate(['character']);
+        setTimeout(()=>{
+          this.spinner.hide();
+          this.router.navigate(['character']);
+        }, 1000);
+
       }, (error1 => {
-        console.log('Error: ', error1);
+        setTimeout(()=>{
+          this.spinner.hide();
+          console.log('Error: ', error1)
+        }, 1000);
       }))
   }
 }
