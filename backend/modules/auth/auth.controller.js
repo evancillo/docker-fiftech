@@ -12,7 +12,7 @@ async function authenticate(req, res) {
     let rawData = await redisClient.getAsync(username);
     let user =  JSON.parse(rawData);
     if (user.password === password) {
-      let token = jwt.sign({id: username}, 'JWT_SECRET', {expiresIn: '2m'});
+      let token = jwt.sign({id: username}, process.env.JWT_SECRET, {expiresIn: '2m'});
       return res.status(200).json({token: token});
     }else {
       return res.status(400).json({error: "Invalid username or password"});
@@ -34,7 +34,7 @@ function verifyToken(req, res, next) {
   // verifies secret and checks exp
   jwt.verify(token, process.env.JWT_SECRET, function(err, decoded) {
     if (err)
-      return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+      return res.status(400).send({ auth: false, message: 'Failed to authenticate token.' });
     // if everything is good, save to request for use in other routes
     req.userId = decoded.id;
     next();
