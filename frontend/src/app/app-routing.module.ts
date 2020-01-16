@@ -6,7 +6,8 @@ import {AuthInterceptor} from "./providers/auth.interceptor";
 const routes: Routes = [
   { path: '', redirectTo: 'character', pathMatch: 'full' },
   { path: 'character', loadChildren: './character/character.module#CharacterModule'},
-  { path: 'login', loadChildren:'./login/login.module#LoginModule'}
+  { path: 'login', loadChildren:'./login/login.module#LoginModule'},
+  { path: 'register', loadChildren: './register/register.module#RegisterModule'}
 ];
 
 @NgModule({
