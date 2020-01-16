@@ -25,7 +25,10 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(['login']);
         }, 1000);
       }, (error1 => {
-
+        setTimeout(()=>{
+          this.spinner.hide();
+         /// error
+        }, 1000);
       }))
   }
 }
