@@ -1,8 +1,8 @@
 <div class="cont">
 
   <div class="form">
-    <form #form="ngForm" (ngSubmit)="authenticate(form)">
-      <h1>Login</h1>
+    <form #form="ngForm" (ngSubmit)="register(form)">
+      <h1>User registry</h1>
       <input type="text"
              class="user"
              placeholder="Username" name="username"
@@ -11,10 +11,7 @@
              class="pass"
              placeholder="Password"
              ngModel />
-      <button class="login" type="submit" [disabled]="form.invalid">Login</button>
-      <p class="login-register-link">No tienes una cuenta, crea la tuya <a routerLink="/register" routerLinkActive="active">aqui</a></p>
+      <button class="register" type="submit" [disabled]="form.invalid">Crear Cuenta</button>
     </form>
-
-
   </div>
 </div>

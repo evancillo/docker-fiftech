@@ -1,4 +1,4 @@
-export interface LoginForm {
+export interface RegisterForm {
   username: string;
   password: string;
 }
